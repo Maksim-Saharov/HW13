@@ -1,15 +1,25 @@
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+import java.util.Arrays;
+import java.util.Objects;
+
 public class Main {
     public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+        Product product1 = new Product(1234, "Телефон", 50000, "Техника");
+        Product product2 = new Product(4321, "Наушники", 10000, "Аксессуары");
+        Product product3 = new Product(1234, "Телефон", 50000, "Техника");
+        System.out.println(product1);
+        System.out.println(product1.equals(product2));
+        System.out.println(product1.equals(product3));
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
-        }
+        ///
+
+        Order order1 = new Order("Maksim", new Product[] {product1, product2});
+        Order order2 = new Order("Nikita", new Product[]{product1, product3});
+        Order order3 = new Order("Maksim", new Product[] {product1, product2});
+        System.out.println(order1);
+        System.out.println(order1.equals(order2));
+        System.out.println(order1.equals(order3));
+
     }
 }
